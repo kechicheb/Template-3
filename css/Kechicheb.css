@@ -84,9 +84,11 @@ a {
 
   /* Start Header */
   header {
-   z-index: 99;
+    position: relative;
     width: 100%;
     background-color: white;
+    -webkit-box-shadow: 0 0 10px #ddd;
+    -moz-box-shadow: 0 0 10px #ddd;
     box-shadow: 0 0 10px #ddd;
 
   }
@@ -101,12 +103,13 @@ a {
   font-size: 26px;
   font-weight: bold;
   text-transform: capitalize;
+  letter-spacing: -1px;
   }
   header .container > ul {
     display: flex;
     
   }
-  
+
   header .container > ul > li > a {
     display: flex;
     justify-content: center;
@@ -159,7 +162,7 @@ a {
    position: absolute;
    top: calc(100% + 30px);
    left: 0;
-   z-index: 1;
+   z-index: -1;
    display: flex;
    opacity: 0;
    width: 100%;
@@ -173,7 +176,7 @@ a {
   header .container > ul > li:last-child:hover > .megamenu {
     top: calc(100% + 1px);
     opacity: 1;
-    z-index: 100;
+    z-index: 99;
 
 }
   header .container .megamenu .links {
@@ -233,3 +236,79 @@ a {
     } 
   }
   /* End Header */
+
+  /* Start Landing */
+.landing {
+  position: relative;
+ overflow: hidden;
+ width: 100%;
+}
+.landing::before {
+  content: "";
+  position: absolute;
+  top: -40px;
+  left: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+
+  background-color:var(--section-background);
+  transform: skewY(-6deg);
+  transform-origin: center left;
+}
+.landing .container {
+  min-height: calc(100vh - 72px);
+  display: grid;
+  place-items: center;
+  grid-template-columns: 1fr 1fr;
+  padding-bottom: 100px;
+  
+}
+
+.landing .container .text h1 {
+font-size: 40px;
+margin: 0;
+letter-spacing: -2px;
+}
+.landing .container .text p {
+  font-size: 23px;
+  max-width: 500px;
+  line-height: 1.7;
+  margin: 5px 0 0;
+  color: #666;
+  
+}
+.landing .container .image img {
+  animation: up-down 5s linear infinite;
+  width: 600px;
+ 
+  
+}
+@media (max-width:991px) {
+  .landing .container {
+    grid-template-columns: auto;
+  }
+  .landing .container .text h1 {
+    font-size: 28px;
+  }
+  .landing .container .text p {
+    font-size: 18px;
+    
+  }
+  .landing .container .text h1 ,  .landing .container .text p {
+    text-align: center;
+  }
+.landing .container .image {
+  display: none;
+}
+}
+@keyframes up-down {
+  0%,100%{
+  transform: translateY(0px);
+  }
+  50%{
+    transform: translateY(-50px);
+  }
+  
+}
+  /* End Landing */
