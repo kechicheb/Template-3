@@ -80,6 +80,65 @@ a {
     }
   }
   
+
+/* Start special-heading */
+.special-heading {
+  position: relative;
+ text-transform: uppercase;
+ text-align: center;
+ width: fit-content; 
+ margin: 0 auto;
+ padding: 10px 15px;
+ border: 2px solid black;
+ transition: var(--main-transition);
+
+}
+ .special-heading::before {
+  content: "";
+  position: absolute;
+  width: 13px;
+  height: 13px;
+  transform: translateY(-50%);
+  top: 50%;
+  left:-30px;
+  border-radius: 50%;
+  background-color: var(--main-color);
+  z-index: -1;
+
+}
+ .special-heading::after,
+ .special-heading::before {
+  content: "";
+  position: absolute;
+  width: 13px;
+  height: 13px;
+  transform: translateY(-50%);
+  top: 50%;
+  border-radius: 50%;
+  z-index: -1;
+  background-color: var(--main-color);
+}
+
+ .special-heading::after {
+  right:-30px;
+}
+ .special-heading::before  {
+  left: -30px;
+}
+ .special-heading:hover {
+  color: white;
+  border-color:white;
+   
+}
+ .special-heading:hover::before {
+  animation: circel-left 0.5s linear forwards;
+}
+ .special-heading:hover::after {
+  animation: circel-right 0.5s linear forwards;
+}
+
+  /* End special-heading */
+
   /* End Global Rules */
 
   /* Start Header */
@@ -277,7 +336,7 @@ letter-spacing: -2px;
   
 }
 .landing .container .image img {
-  animation: up-down 5s linear infinite;
+  animation: up-down-image 5s linear infinite;
   width: 600px;
  
   
@@ -300,15 +359,7 @@ letter-spacing: -2px;
   display: none;
 }
 }
-@keyframes up-down {
-  0%,100%{
-  transform: translateY(0px);
-  }
-  50%{
-    transform: translateY(-50px);
-  }
-  
-}
+
 .landing .container svg {
   position: absolute;
   left: 50%;
@@ -320,6 +371,33 @@ letter-spacing: -2px;
  
  
 }
+
+  /* End Landing */
+
+  /* Start Articles */
+  .articles {
+    padding-top: var(--main-padding-top);
+    padding-bottom: var(--main-padding-bottom);
+  }
+  
+
+  /* End Articles */
+
+
+  
+/* Start Animation */
+
+@keyframes up-down-image {
+  0%,100%{
+  transform: translateY(0px);
+  }
+  50%{
+    transform: translateY(-50px);
+  }
+  
+}
+
+
 @keyframes arrow-animation {
 15% {
   bottom: 20px;
@@ -337,4 +415,33 @@ letter-spacing: -2px;
    bottom: 0px;
 }
 }
-  /* End Landing */
+
+@keyframes circel-left {
+
+  50% {
+    left: 0;
+    width: 13px;
+    height: 13px;
+  }
+  100% {
+    left: 0;
+    border-radius: 0;
+    width: 55%;
+    height: 100%;
+  }
+}
+
+@keyframes circel-right {
+50% {
+  right: 0;
+  width: 13px;
+  height: 13px;
+}
+100% {
+  right: 0;
+  border-radius: 0;
+  width: 55%;
+  height: 100%;
+}
+}
+/* End Animation */
