@@ -84,28 +84,18 @@ a {
 /* Start special-heading */
 .special-heading {
   position: relative;
+  z-index: 99;
  text-transform: uppercase;
  text-align: center;
  width: fit-content; 
- margin: 0 auto;
+ margin: 0 auto 80px;
  padding: 10px 15px;
  border: 2px solid black;
  transition: var(--main-transition);
 
-}
- .special-heading::before {
-  content: "";
-  position: absolute;
-  width: 13px;
-  height: 13px;
-  transform: translateY(-50%);
-  top: 50%;
-  left:-30px;
-  border-radius: 50%;
-  background-color: var(--main-color);
-  z-index: -1;
 
 }
+
  .special-heading::after,
  .special-heading::before {
   content: "";
@@ -115,7 +105,6 @@ a {
   transform: translateY(-50%);
   top: 50%;
   border-radius: 50%;
-  z-index: -1;
   background-color: var(--main-color);
 }
 
@@ -381,7 +370,6 @@ letter-spacing: -2px;
   }
   
   .articles .container .cards {
-    margin-top: 80px;
     display: grid;
     grid-template-columns: repeat(auto-fill,minmax(250px,1fr));
     gap: 40px;
@@ -428,11 +416,84 @@ letter-spacing: -2px;
     animation: arrow-left-right 0.5s linear infinite;
   }
   /* End Articles */
+ 
+
+  /* Start Gallery  */
+   .gallery {
+    padding-top: var(--main-padding-top);
+    padding-bottom: var(--main-padding-bottom);
+    background-color: var(--section-background);
+  
+   }
+   .gallery .boxes {
+    display: grid;
+    grid-template-columns: repeat(3, 350px);
+    justify-content: center;
+    gap:30px; 
+   }
+   @media (max-width:1199px) {
+    .gallery .boxes {
+      grid-template-columns: repeat(2,minmax(300px ,1fr));
+    }
+   }
+ 
+   @media (max-width:669px) {
+    .gallery .boxes {
+      grid-template-columns: 1fr;
+    }
+   } 
+   .gallery .boxes .box {
+    background-color: white;
+    padding: 20px;
+    overflow: hidden;
+   }
+   .gallery .boxes .image {
+    overflow: hidden;
+    width: 100%;
+    position: relative;
+   }
+   .gallery .boxes img {
+    width: 100%;
+    transition: transform var(--main-transition);
+   }
+   .gallery .boxes .image::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.2);
+    left: 0;
+    top: 0;
+    z-index: 99;
+    transform: scale(0);
+    opacity: 0;
+   }
+   .gallery .boxes .box .image:hover img {
+    transform: rotate(5deg) scale(1.2);
+   }
+
+    .gallery .boxes .box .image:hover::before {
+     animation: flashing 0.7s;
+   }
+ 
+
+  /* End Gallery */
+
 
 
   
 /* Start Animation */
 
+@keyframes flashing {
+
+  0%,40% {
+    opacity: 1;
+  }
+  100% {
+    transform: scale(2);
+    opacity: 0;
+    }
+}
 @keyframes arrow-left-right {
   0%,100% {
     transform: translateX(0);
@@ -484,6 +545,7 @@ letter-spacing: -2px;
   }
   100% {
     left: 0;
+    z-index: -1;
     border-radius: 0;
     width: 55%;
     height: 100%;
@@ -498,6 +560,7 @@ letter-spacing: -2px;
 }
 100% {
   right: 0;
+  z-index: -1;
   border-radius: 0;
   width: 55%;
   height: 100%;
