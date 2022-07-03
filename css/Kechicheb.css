@@ -933,6 +933,62 @@ padding-right: 35px;
 }
 /* End Services */
 
+/* Start Our Skills */
+.our-skills {
+  padding-top: var(--main-padding-top);
+  padding-bottom: var(--main-padding-bottom);
+
+}
+.our-skills .container {
+  display: flex;
+  gap: 30px;
+
+}
+.our-skills .container img {
+  width: 100%;
+}
+@media (max-width:991px) {
+  .our-skills .container img {
+    display: none;
+  }
+}
+.our-skills .container img , 
+.our-skills .container .progress {
+flex: 1;
+}
+.our-skills .container .progress {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.our-skills .container .progress .row:not(:last-child) {
+ margin-bottom: 15px;
+}
+.our-skills .container .progress .row h3 {
+  display: flex;
+  justify-content: space-between;
+}
+.our-skills .container .progress .row h3 span{
+  font-size: 12px;
+  border: 1px solid #ccc;
+  padding: 3px 5px;
+  border-radius: 4px;
+  color: var(--main-color);
+
+}
+.our-skills .container .progress .row .prog {
+  position: relative;
+  background-color: #eee;
+  height: 30px;
+  /* width: 100%; */
+}
+.our-skills .container .progress .row .prog  span {
+  background-color: var(--main-color);
+  height: 100%;
+  position: absolute;
+}
+
+/* End Our Skills */
 
   
 /* Start Animation */
