@@ -84,7 +84,7 @@ a {
 /* Start special-heading */
 .special-heading {
   position: relative;
-  z-index: 99;
+  z-index: 999;
  text-transform: uppercase;
  text-align: center;
  width: fit-content; 
@@ -1065,6 +1065,36 @@ transform: scale(1);
 .events {
   padding-top: var(--main-padding-top);
   padding-bottom: var(--main-padding-bottom);
+  position: relative;
+}
+
+.events::before {
+  content: "";
+  position: absolute;
+  z-index: 99;
+  top: 100px;
+  right: 0;
+  width: 204px;
+  height: 186px;
+  background-repeat: no-repeat;
+  background-image: url(../images/dots.png);
+}
+.events::after {
+  content: "";
+  position: absolute;
+  z-index: 99;
+  bottom: 100px;
+  left: 0;
+  width: 204px;
+  height: 186px;
+  background-repeat: no-repeat;
+  background-image: url(../images/dots.png);
+}
+@media (max-width:767px) { 
+  .events::after,.events::before {
+    display: none;
+  }
+
 }
 .events .container {
   display: grid;
@@ -1072,6 +1102,7 @@ transform: scale(1);
   grid-template-columns:450px 1fr;
   grid-template-rows: auto auto;
   place-items: center;
+  row-gap: 50px;
 }
 @media (max-width:991px)  {
   .events .container {
@@ -1087,7 +1118,8 @@ transform: scale(1);
   max-width: 100%;
 }
 .events .container .info {
-  
+  position: relative;
+  z-index: 999;
  display: flex;
  flex-direction: column;
  justify-content: center;
@@ -1102,6 +1134,7 @@ transform: scale(1);
 }
 .events .container .info  .count .col {
   border: 1px solid #d4d4d4;
+  background-color: white;
   border-radius: 5px;
   transition: var(--main-transition);
 }
@@ -1133,7 +1166,68 @@ transform: scale(1);
   color: #777;
 }
 .events .container .subscribe {
+  position: relative;
+  z-index: 999;
   grid-column: span 2;
+  background-color:#f6f5f5;
+  padding: 30px 40px;
+
+}
+.events .container .subscribe form {
+  display: flex;
+  gap: 20px;
+}
+.events .container .subscribe form input[type="email"] {
+   flex: 1;
+   outline: none;
+   border: none;
+   padding: 20px;
+   caret-color: var(--main-color);
+
+}
+.events .container .subscribe form input[type="email"]:focus::placeholder {
+  opacity: 0;
+  transition: opacity var(--main-transition);
+}
+.events .container .subscribe form input[type="submit"]{
+  cursor: pointer;
+  background-color: var(--main-color);
+  color: white;
+  text-transform: capitalize;
+  font-weight: bold;
+  border: none;
+  padding: 20px;
+
+}
+
+@media (min-width:768px) {
+  .events .container .subscribe {
+  border-radius: 50px;
+  width: 70%;
+  }
+  .events .container .subscribe form input {
+    border-radius: 50px;
+  }
+}
+@media (min-width:1200px) {
+  .events .container .subscribe {
+  width: 50%;
+  border-radius: 50px;
+  }
+}
+@media (max-width:767px) {
+  .events .container .subscribe {
+  width: 100%;
+  padding:30px 20px;
+  border-radius: 5px;
+  }
+  .events .container .subscribe form {
+   flex-direction: column;
+  }
+  .events .container .subscribe form input {
+    flex: 1;
+    border-radius: 5px;
+  }
 }
 /* End Events */
 /* Start Animation */
