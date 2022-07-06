@@ -1544,6 +1544,114 @@ height: 100%;
 }
 /* End Stats */
 
+/* Start Discount */
+
+.discount {
+ display: grid;
+ height: 100Vh;
+
+}
+@media (min-width:992px) {
+  .discount {
+    grid-template-columns: 1fr 1fr;
+  }
+  
+} 
+@media (max-width:991px) {
+  .discount {
+    grid-template-columns: 1fr;
+  }
+  
+}
+.discount .left {
+  position: relative;
+  z-index: 99;
+  padding: 30px 0;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  background-image: url(../images/discount-background1.jpg);
+  
+} 
+.discount .left::before  {
+content: "";
+position: absolute;
+z-index: -1;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background-color: rgb(23 135 224 / 97%);
+}
+.discount .left .content {
+  color: white;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+.discount .left h1 {
+  font-size: 40px;
+  letter-spacing: -2px;
+  margin: 0;
+}
+.discount .left p {
+  line-height: 1.6;
+  font-size: 18px;
+  max-width: 500px;
+}
+.discount .left img {
+ width: 250px;  
+}
+
+.discount .form {
+  margin: 40px auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  row-gap: 10px;
+}
+.discount .form h1 {
+  font-size: 40px;
+  letter-spacing: -2px;
+  width: fit-content;
+}
+.discount .form  form {
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+  width: 100%;
+}
+.discount .form  form input:not(:last-child) , 
+.discount .form  form textarea {
+  outline: none;
+  padding: 15px;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  background-color: #f9f9f9;
+  caret-color: var(--main-color);
+  resize: none;
+}
+.discount .form  form input[type="submit"] {
+  background-color: var(--main-color);
+  color: white;
+  border: none;
+  padding: 15px;
+  font-size: 20px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: var(--main-transition);
+}
+.discount .form  form input[type="submit"]:hover {
+  background-color: var(--main-color-alt);
+}
+
+
+
+/* End Discound */
+
 /* Start Animation */
 
 @keyframes flashing {
