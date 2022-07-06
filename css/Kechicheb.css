@@ -1280,41 +1280,64 @@ transform: scale(1);
 .pricing .container .box {
   padding: 30px 0;
   position: relative;
- z-index: 997;
+ z-index: 991;
  overflow: hidden;
  background-color: white;
- box-shadow: 0 0 15px rgba(0, 0, 0, 0.2) ;
+ box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
  display: flex;
  flex-direction: column;
  align-items: center;
 }
+.pricing .container .box::before,
+.pricing .container .box::after {
+content: "";
+position: absolute;
+z-index: 992;
+width: 0;
+height: 50%;
+background-color: #f6f6f6;
+transition: var(--main-transition);
+}
+.pricing .container .box::after {
+  bottom: 0;
+  right: 0;
+}
+.pricing .container .box::before {
+  top: 0;
+  left: 0;
+}
+.pricing .container .box:hover::before,
+.pricing .container .box:hover::after {
+  width: 100%;
+}
+
 
 .pricing .container .box:nth-child(2) {
-margin-top: -20px;
-margin-bottom: 20px;
+transform: translateY(-20px);
 }
 
 .pricing .container .box:nth-child(2) span {
-   position: relative;
-   right: 0px;
+   position: absolute;
+   top:0;
+   right: 0;
    z-index: 998;
-   font-size: 20px;
    font-weight: bold;
    color: white;
-   padding: 10px 50px 10px 40px;
-   background-color: var(--main-color);
-   transform: translate(130px,20px) rotate(90deg);
+   padding: 10px 40px 10px 2px;
+   margin-top: 10px;
+   background-color:  var(--main-color);
+   transform: translate(20%,100%) rotate(90deg);
 }
+
 .pricing .container .box:nth-child(2) span::after {
   content: "";
+  right: -1px;
   top: 50%;
-  right: 0;
-  top: 50%;
-  transform: translate(1%,-50%);
+  transform: translate(0%,-50%);
   position: absolute;
   z-index: 999;
- border: 25px solid;
- border-color: transparent white transparent transparent ;
+  border: 20px solid;
+  border-color: transparent white transparent transparent ;
 }
 
 
@@ -1328,6 +1351,7 @@ margin-bottom: 20px;
   font-weight: bold;
   color: var(--main-color);
 }
+
 .pricing .container .box h1 , 
 .pricing .container .box p {
   margin: 0;
@@ -1344,6 +1368,16 @@ margin-bottom: 20px;
   padding: 20px 0;
   width: 100%;
 }
+.pricing .container .box h1 , 
+.pricing .container .box p,
+.pricing .container .box ul , 
+.pricing .container .box img ,
+.pricing .container .box a
+{
+  position: relative;
+  z-index: 999;
+}
+
 .pricing .container .box  ul li {
   padding: 20px;
   flex-basis: 100%;
