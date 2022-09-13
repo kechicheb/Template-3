@@ -36,3 +36,37 @@ function startCount(e) {
     }
   }, 2000 / count);
 }
+
+// The End Of The Year Date To Countdown To
+
+let countDownDate = new Date(
+  `Dec 31, ${new Date().getFullYear()} 23:59:59`
+).getTime();
+let counter = setInterval(() => {
+  // Get Date Now
+  let dateNow = new Date().getTime();
+  // Find The Date Difference Between Now And Countdown Date
+  let dateDiff = countDownDate - dateNow;
+  // Get Time Units
+  let days = Math.floor(dateDiff / (1000 * 60 * 60 * 24));
+  let hours = Math.floor((dateDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  let minutes = Math.floor((dateDiff % (1000 * 60 * 60)) / (1000 * 60));
+  let seconds = Math.floor((dateDiff % (1000 * 60)) / 1000);
+
+  document.querySelector(".events .days").innerHTML =
+    days < 10 ? `0${days}` : days;
+  document.querySelector(".events .hours").innerHTML =
+    hours < 10 ? `0${hours}` : hours;
+  document.querySelector(".events .minutes").innerHTML =
+    minutes < 10 ? `0${minutes}` : minutes;
+  document.querySelector(".events .seconds").innerHTML =
+    seconds < 10 ? `0${seconds}` : seconds;
+
+  if (dateDiff < 0) {
+    clearInterval(counter);
+  }
+}, 1000);
+
+document.querySelector(
+  ".events .info .text h1"
+).innerHTML = `Tech Masters Event ${new Date().getFullYear()}`;
