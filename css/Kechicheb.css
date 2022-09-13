@@ -1117,6 +1117,11 @@ header .container .megamenu .links li a svg {
   background-color: var(--main-color);
   height: 100%;
   position: absolute;
+  transition: width var(--main-transition) linear;
+  -webkit-transition: width var(--main-transition) linear;
+  -moz-transition: width var(--main-transition) linear;
+  -ms-transition: width var(--main-transition) linear;
+  -o-transition: width var(--main-transition) linear;
 }
 
 
