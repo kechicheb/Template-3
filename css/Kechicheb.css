@@ -1757,6 +1757,11 @@ header .container .megamenu .links li a svg {
   font-size: 50px;
   margin: 10px 0;
   font-weight: bold;
+  transition: all var(--main-transition) linear;
+  -webkit-transition: all var(--main-transition) linear;
+  -moz-transition: all var(--main-transition) linear;
+  -ms-transition: all var(--main-transition) linear;
+  -o-transition: all var(--main-transition) linear;
 }
 
 .stats .container .cards .card p:last-child {
